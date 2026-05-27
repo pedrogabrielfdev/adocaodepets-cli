@@ -6,14 +6,24 @@ public class Adocao {
 
     }
 
-    public static void cadastrosPest() {
+    public static void cadastrosPets() {
         Scanner scanner = new Scanner(System.in);
         Pets pet = new Pets(0, 0, "", "", "", "", "", "", "", 0.0, 0.0, false, false);
 
-        pet.setnome(scanner.nextLine());
-        pet.setidade(scanner.nextInt());
-        pet.setpeso(scanner.nextDouble());
-        pet.settamanho(scanner.nextDouble());
+        System.out.println("Digite o nome do pet: ");
+        pet.setNome(scanner.nextLine());
+
+        System.out.println("Digite a idade do pet:");
+        pet.setIdade(scanner.nextInt());
+
+        System.out.println("Digite o peso do pet:");
+        pet.setPeso(scanner.nextDouble());
+
+        System.out.println("Digite o tamanho do pet:");
+        pet.setTamanho(scanner.nextDouble());
+
+
+        scanner.close();
     }
 
     public static void cadastrosPessoas() {
@@ -33,14 +43,19 @@ public class Adocao {
 
         int escolha = scanner.nextInt();
         switch (escolha) {
-            case 1 -> cadastrosPest();
+            case 1 -> cadastrosPets();
 
             case 2 -> pesquisar();
         }
+
+
+        scanner.close();
     }
 
     public static void main(String[] args) {
         menu();
 
     }
+}
+
 }
