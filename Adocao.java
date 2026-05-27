@@ -22,12 +22,11 @@ public class Adocao {
         System.out.println("Digite o tamanho do pet:");
         pet.setTamanho(scanner.nextDouble());
 
-
         scanner.close();
     }
 
     public static void cadastrosPessoas() {
-                Scanner scanner= new Scanner(System.in);
+        Scanner scanner= new Scanner(System.in);
         Pessoa pessoa= new Pessoa(null, null, null, null, null, null, 0, 0);
         
         System.out.println("Digite o seu nome:");
@@ -50,8 +49,8 @@ public class Adocao {
 
         System.out.println("Digite sua senha:");
         pessoa.setSenha(scanner.nextLine());
-        scanner.close();
 
+        scanner.close();
     }
 
     public static void pesquisar() {
@@ -80,6 +79,4 @@ public class Adocao {
         menu();
 
     }
-}
-
 }
