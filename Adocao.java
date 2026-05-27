@@ -27,6 +27,30 @@ public class Adocao {
     }
 
     public static void cadastrosPessoas() {
+                Scanner scanner= new Scanner(System.in);
+        Pessoa pessoa= new Pessoa(null, null, null, null, null, null, 0, 0);
+        
+        System.out.println("Digite o seu nome:");
+        pessoa.setNome(scanner.nextLine());
+
+        System.out.println("Digite o seu sexo:");
+        pessoa.setSexo(scanner.nextLine());
+
+        System.out.println("Digite o seu endereço:");
+        pessoa.setEndereco(scanner.nextLine());
+
+        System.out.println("Digite o seu número de telefone:");
+        pessoa.setTelefone(scanner.nextLine());
+
+        System.out.println("Digite o seu cpf:");
+        pessoa.setCpf(scanner.nextLine());
+
+        System.out.println("Digite a sua idade:");
+        pessoa.setidade(scanner.nextInt());
+
+        System.out.println("Digite sua senha:");
+        pessoa.setSenha(scanner.nextLine());
+        scanner.close();
 
     }
 
