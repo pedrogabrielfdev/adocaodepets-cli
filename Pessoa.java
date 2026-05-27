@@ -13,32 +13,56 @@ public class Pessoa {
         this.id = id;
     }
 
-    public String getnome() {
-        return this.nome;
+    public String getNome() {
+        return nome;
     }
 
-    public void setnome(String nome) {
+    public void setNome(String nome) {
         this.nome = nome;
     }
 
-    public String getendereco() {
-        return this.endereco;
+    public String getSexo() {
+        return sexo;
     }
 
-    public void setendereco(String novoEndereco) {
-        this.endereco = novoEndereco;
+    public void setSexo(String sexo) {
+        this.sexo = sexo;
     }
 
-    public String gettelefone() {
-        return this.telefone;
+    public String getSenha() {
+        return senha;
     }
 
-    public void settelefone(String novoTelefone) {
-        this.endereco = novoTelefone;
+    public void setSenha(String senha) {
+        this.senha = senha;
     }
-    
-    public int getidade() {
-        return this.idade;
+
+    public String getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    public int getIdade() {
+        return idade;
     }
 
     public void setidade(int idade) {
@@ -50,15 +74,12 @@ public class Pessoa {
         }
     }
 
-    public void editar(String novoEndereco, String novoTelefone, String novaSenha) {
-
+    public int getId() {
+        return id;
     }
 
-    public void cadastrarUsuario() {
-
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public void exibirDados() {
-
-    }
 }

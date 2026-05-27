@@ -20,52 +20,108 @@ public class Pets {
         this.vacinado = vacinado;
     }
 
-    public int getidade() {
-        return this.idade;
+    public int getIdade() {
+        return idade;
     }
 
-    public void setidade(int idade) {
+    public void setIdade(int idade) {
         this.idade = idade;
     }
 
-    public String getnome() {
-        return this.nome;
+    public int getId() {
+        return id;
     }
 
-    public void setnome(String novoNome) {
-        this.nome = novoNome;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public String getcomorbidade() {
-        return this.comorbidade;
+    public double getTamanho() {
+        return tamanho;
     }
 
-    public void setcomorbidade(String novoEstado) {
-        this.comorbidade = novoEstado;
+    public void setTamanho(double tamanho) {
+        this.tamanho = tamanho;
     }
 
-    public double gettamanho() {
-        return this.tamanho;
+    public double getPeso() {
+        return peso;
     }
 
-    public void settamanho(double novoTamanho) {
-        this.tamanho = novoTamanho;
+    public void setPeso(double peso) {
+        this.peso = peso;
     }
 
-    public double getpeso() {
-        return this.peso;
+    public String getEspecie() {
+        return especie;
     }
 
-    public void setpeso(double novoPeso) {
-        this.peso = novoPeso;
+    public void setEspecie(String especie) {
+        this.especie = especie;
     }
 
-    public boolean getadotado() {
-        return this.adotado;
+    public String getRaca() {
+        return raca;
     }
 
-    public void setadotado(boolean adotado) {
+    public void setRaca(String raca) {
+        this.raca = raca;
+    }
+
+    public String getSexo() {
+        return sexo;
+    }
+
+    public void setSexo(String sexo) {
+        this.sexo = sexo;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getDataNascimento() {
+        return dataNascimento;
+    }
+
+    public void setDataNascimento(String dataNascimento) {
+        this.dataNascimento = dataNascimento;
+    }
+
+    public String getCor() {
+        return cor;
+    }
+
+    public void setCor(String cor) {
+        this.cor = cor;
+    }
+
+    public String getComorbidade() {
+        return comorbidade;
+    }
+
+    public void setComorbidade(String comorbidade) {
+        this.comorbidade = comorbidade;
+    }
+
+    public boolean isAdotado() {
+        return adotado;
+    }
+
+    public void setAdotado(boolean adotado) {
         this.adotado = adotado;
+    }
+
+    public boolean isVacinado() {
+        return vacinado;
+    }
+
+    public void setVacinado(boolean vacinado) {
+        this.vacinado = vacinado;
     }
 
     public void cadastrarPets() {
