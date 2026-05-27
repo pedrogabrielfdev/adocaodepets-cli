@@ -1,4 +1,6 @@
+import java.util.Scanner;
 public class Pessoa {
+    scanner ler = new Scanner(System.in);
     private String nome, sexo, senha, endereco, telefone, cpf;
     private int idade, id;
 
@@ -80,6 +82,42 @@ public class Pessoa {
 
     public void setId(int id) {
         this.id = id;
+    }
+    public void alterar_nome(){
+        System.out.println("Digite o novo nome:");
+        String novoNome = ler.nextLine();
+
+        setNome(novoNome);
+    }
+    public void alterar_senha(){
+        System.out.println("Digite a nova senha:");
+        String novaSenha = ler.nextLine();
+
+        setSenha(novaSenha);
+    }
+    public void alterar_endereco(){
+        System.out.println("Digite o novo endereço:");
+        String novoEndereco = ler.nextLine();
+
+        setEndereco(novoEndereco);
+    }
+    public void alterar_telefone(){
+        System.out.println("Digite o novo telefone:");
+        String novoTelefone = ler.nextLine();
+
+        setTelefone(novoTelefone);
+    }
+    public void alterar_idade(){
+        System.out.println("Digite a nova idade:");
+        int novaIdade = ler.nextInt();
+
+        setidade(novaIdade);
+    }
+    public void alterar_cpf(){
+        System.out.println("Digite o novo CPF:");
+        String novoCpf = ler.nextLine();
+
+        setCpf(novoCpf);
     }
 
 }
