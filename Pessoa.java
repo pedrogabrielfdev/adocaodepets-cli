@@ -1,10 +1,14 @@
 import java.util.Scanner;
 public class Pessoa {
     Scanner ler = new Scanner(System.in);
-    private String nome, sexo, senha, endereco, telefone, cpf;
+    private String nome, sexo, senha, endereco, telefone, cpf, login;
     private int idade, id;
 
-    Pessoa(String nome, String sexo, String senha, String endereco, String telefone, String cpf, int idade, int id) {
+    public Pessoa(){
+
+    }
+
+    public Pessoa(String nome, String sexo, String senha, String endereco, String telefone, String cpf, String login, int idade, int id) {
         this.nome = nome;
         this.sexo = sexo;
         this.senha = senha;
@@ -13,6 +17,7 @@ public class Pessoa {
         this.cpf = cpf;
         this.idade = idade;
         this.id = id;
+        this.login = login;
     }
 
     public String getNome() {
@@ -29,6 +34,13 @@ public class Pessoa {
 
     public void setSexo(String sexo) {
         this.sexo = sexo;
+    }
+    public String getLogin(){
+        return login;
+    }
+
+    public void setLogin(String login){
+        this.login = login;
     }
 
     public String getSenha() {
