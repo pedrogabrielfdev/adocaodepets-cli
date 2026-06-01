@@ -11,16 +11,27 @@ public class Adocao {
 
         System.out.println("Escolha uma opcao:");
         System.out.println("1 - Login");
+        System.out.println("2 - cadastro");
+        System.out.println("0 - Encerrar programa");
 
-        int escolha = scanner.nextInt();
+        int escolha;
+        do {
+        escolha = scanner.nextInt();
         scanner.nextLine();
-        switch (escolha) {
-            case 1 -> login();
-
-        }
+            switch (escolha) {
+                case 1 -> {
+                    if (login()) {
+                        menu();
+                    }
+                } 
+                case 2 -> cadastrosPessoas();
+                case 0 -> System.out.println("Encerrando programa");
+                default -> System.out.println("Opção inválida!");
+            }
+        } while (escolha != 0);
     }
 
-    public static void login() {
+    public static boolean login() {
         String usuarioCriado;
         String senhaInicial;
 
@@ -49,8 +60,10 @@ public class Adocao {
             }
 
         } while (!encontrado);
+        
+        System.out.println("Login realizado com sucesso!");
+        return encontrado;
 
-    System.out.println("Login realizado com sucesso!");
     }
 
 
@@ -132,9 +145,9 @@ public class Adocao {
     }
 
     public static void main(String[] args) {
-        cadastrosPessoas();
         menuLogin();
-        menu();
+        // cadastrosPessoas();
+        // menu(); 
         scanner.close();
 
     }
