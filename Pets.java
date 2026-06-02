@@ -128,11 +128,24 @@ public class Pets {
 
     }
 
-    // public void mudarNome(String novoNome) {
-        
-    // }
-
     public void exibirInformações() {
+
+        System.out.println("\n====================");
+        System.out.println("Informações do pet");
+        System.out.println("====================");
+        System.out.println("Nome:"+ this.nome);
+        System.out.println("Id:"+ this.id);
+        System.out.println("Idade do:"+ this.idade);
+        System.out.println("Espécie:"+ this.especie);
+        System.out.println("Raça:"+ this.raca);
+        System.out.println("Sexo:"+ this.sexo);
+        System.out.println("Data de nascimento:"+ this.dataNascimento);
+        System.out.println("Cor:"+ this.cor);
+        System.out.println("Comorbidade:"+ this.comorbidade);
+        System.out.println("Tamanho:"+ this.tamanho);
+        System.out.println("Peso:"+ this.peso);
+        System.out.println("Adotado:"+ this.adotado);
+        System.out.println("Vacinado:"+ this.vacinado);
 
     }
 }
