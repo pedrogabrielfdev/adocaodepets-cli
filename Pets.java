@@ -2,9 +2,9 @@ public class Pets {
     private int idade, id;
     private double tamanho, peso;
     private String especie, raca, sexo, nome, cor, comorbidade;
-    private boolean adotado, vacinado;
+    private boolean vacinado;
 
-    Pets(int idade, int id, String especie, String raca, String sexo, String nome, String cor, String comorbidade, double tamanho, double peso, boolean adotado, boolean vacinado) {
+    Pets(int idade, int id, String especie, String raca, String sexo, String nome, String cor, String comorbidade, double tamanho, double peso, boolean vacinado) {
         this.idade = idade;
         this.id = id;
         this.especie = especie;
@@ -15,7 +15,6 @@ public class Pets {
         this.comorbidade = comorbidade;
         this.tamanho = tamanho;
         this.peso = peso;
-        this.adotado = adotado;
         this.vacinado = vacinado;
     }
 
@@ -99,14 +98,6 @@ public class Pets {
         this.comorbidade = comorbidade;
     }
 
-    public boolean isAdotado() {
-        return adotado;
-    }
-
-    public void setAdotado(boolean adotado) {
-        this.adotado = adotado;
-    }
-
     public boolean isVacinado() {
         return vacinado;
     }
@@ -134,7 +125,6 @@ public class Pets {
         System.out.println("Comorbidade:"+ this.comorbidade);
         System.out.println("Tamanho:"+ this.tamanho);
         System.out.println("Peso:"+ this.peso);
-        System.out.println("Adotado:"+ this.adotado);
         System.out.println("Vacinado:"+ this.vacinado);
 
     }

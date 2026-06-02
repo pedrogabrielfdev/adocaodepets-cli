@@ -98,8 +98,14 @@ public class Adocao {
         System.out.println("O pet possui alguma comorbidade?");
         pet.setComorbidade(scanner.nextLine());
         
-        System.out.println("O pet já é vacinado? s(sim) ou n(não");
-        pet.setVacinado(scanner.nextBoolean());
+        System.out.println("O pet já é vacinado? s(sim) ou n(não)");
+        String vacinado = scanner.nextLine();
+
+        if (vacinado.equalsIgnoreCase("s")) {
+            pet.setVacinado(true);
+        } else {
+            pet.setVacinado(false);
+        }
 
         pets.add(pet);
     }
@@ -138,14 +144,21 @@ public class Adocao {
 
     public static void adotarPets(){
         System.out.print("Digite o nome do pet que quer adotar:");
-        int indice = scanner.nextInt();
-        scanner.nextLine();
+        String nome = scanner.nextLine();
+        boolean encontrado = false;
 
-        if (indice >= 0 && indice < pets.size()) {
-            pets.remove(indice);
-            System.out.println("pet adotado com sucesso!");
-        } else {
-            System.out.println("Índice inválido.");
+        for (Pets pet : pets) {
+            if (pet.getNome().equalsIgnoreCase(nome)) {
+                pets.remove(pet);
+                System.out.println("Parabéns! Você adotou o pet " + pet.getNome() + ".");
+                encontrado = true;
+                break;
+            } 
+            if (!encontrado) {
+                System.out.println("Pet não encontrado. Verifique o nome e tente novamente.");
+                       
+        
+            }
         }
     }
 
@@ -171,13 +184,13 @@ public class Adocao {
     public static void menu() {
         int escolha;
         do{
+            System.out.println("\n=========PETS===========\n");  // Menu pets
             System.out.println("Escolha uma opcao:");
             System.out.println("1 - Cadastrar pets");
             System.out.println("2 - Pesquisar pets");
-            System.out.println("2 - Adotar um pet");
-
+            System.out.println("3 - Adotar um pet");
             System.out.println("0 - Encerrar programa");
-
+            System.out.println("\n====================\n");
             escolha = scanner.nextInt();
             scanner.nextLine();
             switch (escolha) {
