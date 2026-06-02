@@ -65,12 +65,17 @@ public class Adocao {
 
     }
 
-
     public static void cadastrosPets() {
-        Pets pet = new Pets(0, 0, "", "", "", "", "", "", "", 0.0, 0.0, false, false);
+        Pets pet = new Pets(0, 0, null, null, null, null, null, null, 0, 0, false, false);
 
-        System.out.println("Digite o nome do pet: ");
+        System.out.println("Digite o nome do pet:");
         pet.setNome(scanner.nextLine());
+
+        System.out.println("Digite a espécie do pet:");
+        pet.setEspecie(scanner.nextLine());
+        
+        System.out.println("Digite a raça do pet:");
+        pet.setRaca(scanner.nextLine());
 
         System.out.println("Digite a idade do pet:");
         pet.setIdade(scanner.nextInt());
@@ -83,6 +88,18 @@ public class Adocao {
         System.out.println("Digite o tamanho do pet:");
         pet.setTamanho(scanner.nextDouble());
         scanner.nextLine();
+
+        System.out.println("Digite a sexo do pet:");
+        pet.setSexo(scanner.nextLine());
+
+        System.out.println("Digite a cor do pet:");
+        pet.setCor(scanner.nextLine());
+        
+        System.out.println("O pet possui alguma comorbidade?");
+        pet.setComorbidade(scanner.nextLine());
+        
+        System.out.println("O pet já é vacinado? s(sim) ou n(não");
+        pet.setVacinado(scanner.nextBoolean());
 
         pets.add(pet);
     }
@@ -119,7 +136,35 @@ public class Adocao {
 
     }
 
+    public static void adotarPets(){
+        System.out.print("Digite o nome do pet que quer adotar:");
+        int indice = scanner.nextInt();
+        scanner.nextLine();
+
+        if (indice >= 0 && indice < pets.size()) {
+            pets.remove(indice);
+            System.out.println("pet adotado com sucesso!");
+        } else {
+            System.out.println("Índice inválido.");
+        }
+    }
+
     public static void pesquisar() {
+        System.out.println("Digite a espécie que deseja pesquisar:");
+        String especie = scanner.nextLine();
+
+        boolean encontrado = false;
+
+        for (Pets pet : pets) {
+            if (pet.getEspecie().equalsIgnoreCase(especie)) {
+                pet.exibirInformacoes();
+                encontrado = true;
+            }
+        }
+
+        if (!encontrado) {
+            System.out.println("Nenhum pet dessa espécie foi encontrado.");
+        }
         
     }
 
@@ -129,6 +174,8 @@ public class Adocao {
             System.out.println("Escolha uma opcao:");
             System.out.println("1 - Cadastrar pets");
             System.out.println("2 - Pesquisar pets");
+            System.out.println("2 - Adotar um pet");
+
             System.out.println("0 - Encerrar programa");
 
             escolha = scanner.nextInt();
@@ -137,6 +184,8 @@ public class Adocao {
                 case 1 -> cadastrosPets();
 
                 case 2 -> pesquisar();
+
+                case 3 -> adotarPets();
                 
                 case 0 -> System.out.println("Encerrando programa");
 

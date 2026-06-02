@@ -1,17 +1,16 @@
 public class Pets {
     private int idade, id;
     private double tamanho, peso;
-    private String especie, raca, sexo, nome, dataNascimento, cor, comorbidade;
+    private String especie, raca, sexo, nome, cor, comorbidade;
     private boolean adotado, vacinado;
 
-    Pets(int idade, int id, String especie, String raca, String sexo, String nome, String dataNascimento, String cor, String comorbidade, double tamanho, double peso, boolean adotado, boolean vacinado) {
+    Pets(int idade, int id, String especie, String raca, String sexo, String nome, String cor, String comorbidade, double tamanho, double peso, boolean adotado, boolean vacinado) {
         this.idade = idade;
         this.id = id;
         this.especie = especie;
         this.raca = raca;
         this.sexo = sexo;
         this.nome = nome;
-        this.dataNascimento = dataNascimento;
         this.cor = cor;
         this.comorbidade = comorbidade;
         this.tamanho = tamanho;
@@ -84,14 +83,6 @@ public class Pets {
         this.nome = nome;
     }
 
-    public String getDataNascimento() {
-        return dataNascimento;
-    }
-
-    public void setDataNascimento(String dataNascimento) {
-        this.dataNascimento = dataNascimento;
-    }
-
     public String getCor() {
         return cor;
     }
@@ -128,7 +119,7 @@ public class Pets {
 
     }
 
-    public void exibirInformações() {
+    public void exibirInformacoes() {
 
         System.out.println("\n====================");
         System.out.println("Informações do pet");
@@ -139,7 +130,6 @@ public class Pets {
         System.out.println("Espécie:"+ this.especie);
         System.out.println("Raça:"+ this.raca);
         System.out.println("Sexo:"+ this.sexo);
-        System.out.println("Data de nascimento:"+ this.dataNascimento);
         System.out.println("Cor:"+ this.cor);
         System.out.println("Comorbidade:"+ this.comorbidade);
         System.out.println("Tamanho:"+ this.tamanho);
