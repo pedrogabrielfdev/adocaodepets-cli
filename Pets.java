@@ -1,12 +1,13 @@
 public class Pets {
-    private int idade, id;
+    private static int idIncremento = 1;
+    private int idade, id=0;
     private double tamanho, peso;
     private String especie, raca, sexo, nome, cor, comorbidade;
     private boolean vacinado;
 
-    Pets(int idade, int id, String especie, String raca, String sexo, String nome, String cor, String comorbidade, double tamanho, double peso, boolean vacinado) {
+    Pets(int idade, String especie, String raca, String sexo, String nome, String cor, String comorbidade, double tamanho, double peso, boolean vacinado) {
         this.idade = idade;
-        this.id = id;
+        this.id = idIncremento;
         this.especie = especie;
         this.raca = raca;
         this.sexo = sexo;
@@ -16,6 +17,8 @@ public class Pets {
         this.tamanho = tamanho;
         this.peso = peso;
         this.vacinado = vacinado;
+
+        idIncremento++;
     }
 
     public int getIdade() {

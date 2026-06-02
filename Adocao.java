@@ -18,8 +18,9 @@ public class Adocao {
         scanner.nextLine();
             switch (escolha) {
                 case 1 -> {
-                    if (login()) {
-                        menu();
+                    ResultadoLogin login = login();
+                    if (login.isLoginT()) {
+                        menu(login.getPessoa());
                     }
                 } 
                 case 2 -> cadastrosPessoas();
@@ -29,11 +30,12 @@ public class Adocao {
         } while (escolha != 0);
     }
 
-    public static boolean login() {
+    public static ResultadoLogin login() {
         String usuarioCriado;
         String senhaInicial;
 
         boolean encontrado = false;
+        ResultadoLogin resultado = new ResultadoLogin(encontrado, null);
 
         do {
 
@@ -48,24 +50,32 @@ public class Adocao {
                 if (usuarioCriado.equals(pessoa.getLogin()) &&
                 senhaInicial.equals(pessoa.getSenha())) {
 
-                encontrado = true;
-                break;
+                    encontrado = true;
+                    resultado.setLoginT(encontrado);
+                    resultado.setPessoa(pessoa);
+                    break;
                 }
             }
 
             if (!encontrado) {
-            System.out.println("Login ou senha incorretos!\n");
+                System.out.println("Login ou senha incorretos!\n");
+                System.out.println("Tentar novamente? s(sim) n(não)");
+                String escolha = scanner.nextLine();
+                if (escolha.equalsIgnoreCase("n")) {
+                    break;
+                }
+                
             }
 
         } while (!encontrado);
         
         System.out.println("Login realizado com sucesso!");
-        return encontrado;
+        return resultado;
 
     }
 
     public static void cadastrosPets() {
-        Pets pet = new Pets(0, 0, null, null, null, null, null, null, 0, 0, false);
+        Pets pet = new Pets(0, null, null, null, null, null, null, 0, 0, false);
 
         System.out.println("Digite o nome do pet:");
         pet.setNome(scanner.nextLine());
@@ -110,7 +120,7 @@ public class Adocao {
     }
 
     public static void cadastrosPessoas() {
-        Pessoa pessoa= new Pessoa();
+        Pessoa pessoa= new Pessoa(null, null, null, null, null, null, null, 0);
 
         System.out.println("Digite o nome de usuário que você deseja:");
         pessoa.setLogin(scanner.nextLine());
@@ -177,7 +187,10 @@ public class Adocao {
         }
     }
 
-    public static void menu() {
+
+
+
+    public static void menu(Pessoa pessoa) {
         int escolha;
         do{
             System.out.println("\n=========PETS===========\n");  // Menu pets
@@ -185,7 +198,8 @@ public class Adocao {
             System.out.println("1 - Cadastrar pets");
             System.out.println("2 - Pesquisar pets");
             System.out.println("3 - Adotar um pet");
-            System.out.println("0 - Encerrar programa");
+            System.out.println("4 - Informações do Usuario");
+            System.out.println("0 - Sair");
             System.out.println("\n====================\n");
             escolha = scanner.nextInt();
             scanner.nextLine();
@@ -195,8 +209,10 @@ public class Adocao {
                 case 2 -> pesquisar();
 
                 case 3 -> adotarPets();
+
+                case 4 -> pessoa.exibirInformacoes();
                 
-                case 0 -> System.out.println("Encerrando programa");
+                //case 0 -> System.out.println("Encerrando programa");
 
                 default -> System.out.println("Opção inválida!");
             }
