@@ -9,13 +9,12 @@ public class Adocao {
 
     public static void menuLogin() {
 
+        int escolha;
+        do {
         System.out.println("Escolha uma opcao:");
         System.out.println("1 - Login");
         System.out.println("2 - cadastro");
         System.out.println("0 - Encerrar programa");
-
-        int escolha;
-        do {
         escolha = scanner.nextInt();
         scanner.nextLine();
             switch (escolha) {
@@ -113,13 +112,15 @@ public class Adocao {
         pessoa.setidade(scanner.nextInt());
         scanner.nextLine();
 
-        pessoa.setSenha(pessoa.getCpf());
+        System.out.println("Crie a sua senha:");
+        pessoa.setSenha(scanner.nextLine());
+
         pessoas.add(pessoa);
 
     }
 
     public static void pesquisar() {
-
+        
     }
 
     public static void menu() {
@@ -146,8 +147,6 @@ public class Adocao {
 
     public static void main(String[] args) {
         menuLogin();
-        // cadastrosPessoas();
-        // menu(); 
         scanner.close();
 
     }
