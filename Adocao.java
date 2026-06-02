@@ -6,7 +6,6 @@ public class Adocao {
     public static ArrayList<Pessoa> pessoas = new ArrayList<>();
     public static ArrayList<Pets> pets = new ArrayList<>();
 
-
     public static void menuLogin() {
 
         int escolha;
@@ -66,7 +65,7 @@ public class Adocao {
     }
 
     public static void cadastrosPets() {
-        Pets pet = new Pets(0, 0, null, null, null, null, null, null, 0, 0, false, false);
+        Pets pet = new Pets(0, 0, null, null, null, null, null, null, 0, 0, false);
 
         System.out.println("Digite o nome do pet:");
         pet.setNome(scanner.nextLine());
@@ -156,8 +155,6 @@ public class Adocao {
             } 
             if (!encontrado) {
                 System.out.println("Pet não encontrado. Verifique o nome e tente novamente.");
-                       
-        
             }
         }
     }
@@ -178,7 +175,6 @@ public class Adocao {
         if (!encontrado) {
             System.out.println("Nenhum pet dessa espécie foi encontrado.");
         }
-        
     }
 
     public static void menu() {
