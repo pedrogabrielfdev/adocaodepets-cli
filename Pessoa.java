@@ -104,6 +104,14 @@ public class Pessoa {
        
         setNome(novoNome);
     }
+
+    public void alterar_sexo(){
+        System.out.println("Digite o novo sexo:");
+        String novoSexo = ler.nextLine();
+       
+        setSexo(novoSexo);
+    }
+
     public void alterar_senha(){
         System.out.println("Digite a nova senha:");
         String novaSenha = ler.nextLine();
@@ -132,9 +140,15 @@ public class Pessoa {
     public void alterar_cpf(){
         System.out.println("Digite o novo CPF:");
         String novoCpf = ler.nextLine();
-        
 
         setCpf(novoCpf);
+    }
+
+    public void alterar_login(){
+        System.out.println("Digite o novo login:");
+        String novoLogin = ler.nextLine();
+       
+        setLogin(novoLogin);
     }
 
     public void exibirInformacoes() {
@@ -149,6 +163,44 @@ public class Pessoa {
         System.out.println("telefone:"+ this.telefone);
         System.out.println("Sexo:"+ this.sexo);
 
+    }
+
+    public void editarDados() {
+
+        int escolha; 
+
+        System.out.println("Escolha a opção que deseja editar: ");
+        System.out.println("1 - Nome");
+        System.out.println("2 - Sexo");
+        System.out.println("3 - Idade");
+        System.out.println("4 - Endereço");
+        System.out.println("5 - Telefone");
+        System.out.println("6 - Cpf");
+        System.out.println("7 - Nome de Usuário");
+        System.out.println("8 - Senha");
+
+        escolha = ler.nextInt();
+        ler.nextLine();
+
+        switch(escolha) {
+            case 1 -> alterar_nome();
+            
+            case 2 -> alterar_sexo();
+            
+            case 3 -> alterar_idade();
+            
+            case 4 -> alterar_endereco();
+            
+            case 5 -> alterar_telefone();
+            
+            case 6 -> alterar_cpf();
+            
+            case 7 -> alterar_login();
+            
+            case 8 -> alterar_senha();
+            
+            default -> System.out.println("Opção Inválida!");
+        }
     }
 
 }

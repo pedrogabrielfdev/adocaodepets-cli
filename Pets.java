@@ -109,10 +109,6 @@ public class Pets {
         this.vacinado = vacinado;
     }
 
-    public void cadastrarPets() {
-
-    }
-
     public void exibirInformacoes() {
 
         System.out.println("\n====================");

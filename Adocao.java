@@ -53,15 +53,20 @@ public class Adocao {
                     encontrado = true;
                     resultado.setLoginT(encontrado);
                     resultado.setPessoa(pessoa);
+
+                    System.out.println("Login realizado com sucesso!");
+
                     break;
                 }
             }
 
             if (!encontrado) {
+                System.out.println("Você ainda não possui um cadastro! Faça um antes de realizar um login");
                 System.out.println("Login ou senha incorretos!\n");
                 System.out.println("Tentar novamente? s(sim) n(não)");
                 String escolha = scanner.nextLine();
                 if (escolha.equalsIgnoreCase("n")) {
+                                     
                     break;
                 }
                 
@@ -69,7 +74,7 @@ public class Adocao {
 
         } while (!encontrado);
         
-        System.out.println("Login realizado com sucesso!");
+
         return resultado;
 
     }
@@ -147,19 +152,23 @@ public class Adocao {
         System.out.println("Crie a sua senha:");
         pessoa.setSenha(scanner.nextLine());
 
+        System.out.println("Cadastro realizado com Sucesso!");
+
         pessoas.add(pessoa);
 
     }
 
     public static void adotarPets(){
         System.out.print("Digite o nome do pet que quer adotar:");
-        String nome = scanner.nextLine();
+        int id = scanner.nextInt();
+        scanner.nextLine();
+
         boolean encontrado = false;
 
         for (Pets pet : pets) {
-            if (pet.getNome().equalsIgnoreCase(nome)) {
+            if (pet.getId() == (id)) {
                 pets.remove(pet);
-                System.out.println("Parabéns! Você adotou o pet " + pet.getNome() + ".");
+                System.out.println("Parabéns! Você adotou o pet " + pet.getNome() + "." + "Seja muito feliz com seu novo amigo!");
                 encontrado = true;
                 break;
             } 
@@ -187,9 +196,6 @@ public class Adocao {
         }
     }
 
-
-
-
     public static void menu(Pessoa pessoa) {
         int escolha;
         do{
@@ -199,6 +205,7 @@ public class Adocao {
             System.out.println("2 - Pesquisar pets");
             System.out.println("3 - Adotar um pet");
             System.out.println("4 - Informações do Usuario");
+            System.out.println("5 - Editar Dados do Usuário");
             System.out.println("0 - Sair");
             System.out.println("\n====================\n");
             escolha = scanner.nextInt();
@@ -211,14 +218,13 @@ public class Adocao {
                 case 3 -> adotarPets();
 
                 case 4 -> pessoa.exibirInformacoes();
-                
-                //case 0 -> System.out.println("Encerrando programa");
+
+                case 5 -> pessoa.editarDados();
 
                 default -> System.out.println("Opção inválida!");
             }
         }while (escolha !=0);   
     }
-
     public static void main(String[] args) {
         menuLogin();
         scanner.close();
