@@ -116,7 +116,7 @@ public class Pets {
         System.out.println("====================");
         System.out.println("Nome:"+ this.nome);
         System.out.println("Id:"+ this.id);
-        System.out.println("Idade do:"+ this.idade);
+        System.out.println("Idade:"+ this.idade);
         System.out.println("Espécie:"+ this.especie);
         System.out.println("Raça:"+ this.raca);
         System.out.println("Sexo:"+ this.sexo);

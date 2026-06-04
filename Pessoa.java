@@ -82,13 +82,14 @@ public class Pessoa {
         return idade;
     }
 
-    public void setidade(int idade) {
-        if (idade >= 18) {
-            this.idade = idade;
-            System.out.println("Idade Validada! Prossiga com o cadastro!");
-        } else {
-            System.out.println("Idade Inválida! Você não tem idade suficiente para adotar um pet.");
-        }
+    public boolean setidade(int idade) {
+     if (idade < 18) {
+         System.out.println("Idade inválida! Você não tem idade suficiente para adotar um pet.");
+            return false;
+     }
+
+        this.idade = idade;
+     return true;
     }
 
     public int getId() {

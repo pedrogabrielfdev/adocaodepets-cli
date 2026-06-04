@@ -146,8 +146,11 @@ public class Adocao {
         pessoa.setCpf(scanner.nextLine());
 
         System.out.println("Digite a sua idade:");
-        pessoa.setidade(scanner.nextInt());
+        int idade = scanner.nextInt();
         scanner.nextLine();
+        if (!pessoa.setidade(idade)) {
+        return; 
+        }
 
         System.out.println("Crie a sua senha:");
         pessoa.setSenha(scanner.nextLine());
@@ -171,8 +174,7 @@ public class Adocao {
                 System.out.println("Parabéns! Você adotou o pet " + pet.getNome() + "." + "Seja muito feliz com seu novo amigo!");
                 encontrado = true;
                 break;
-            } 
-            if (!encontrado) {
+            } else {
                 System.out.println("Pet não encontrado. Verifique o nome e tente novamente.");
             }
         }
@@ -199,15 +201,17 @@ public class Adocao {
     public static void menu(Pessoa pessoa) {
         int escolha;
         do{
-            System.out.println("\n=========PETS===========\n");  // Menu pets
+            System.out.println("\n===========PETS============");  // Menu pets
             System.out.println("Escolha uma opcao:");
             System.out.println("1 - Cadastrar pets");
             System.out.println("2 - Pesquisar pets");
             System.out.println("3 - Adotar um pet");
+            System.out.println("===========================");
+            System.out.println("\n==========USUÁRIO==========");
             System.out.println("4 - Informações do Usuario");
             System.out.println("5 - Editar Dados do Usuário");
             System.out.println("0 - Sair");
-            System.out.println("\n====================\n");
+            System.out.println("===========================\n");
             escolha = scanner.nextInt();
             scanner.nextLine();
             switch (escolha) {
