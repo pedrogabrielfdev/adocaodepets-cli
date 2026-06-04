@@ -10,10 +10,12 @@ public class Adocao {
 
         int escolha;
         do {
-        System.out.println("Escolha uma opcao:");
+        System.out.println("\n===========MENU_LOGIN============");
         System.out.println("1 - Login");
         System.out.println("2 - cadastro");
         System.out.println("0 - Encerrar programa");
+        System.out.println("=================================\n");
+        System.out.println("Escolha uma opção:");
         escolha = scanner.nextInt();
         scanner.nextLine();
             switch (escolha) {
@@ -202,7 +204,6 @@ public class Adocao {
         int escolha;
         do{
             System.out.println("\n===========PETS============");  // Menu pets
-            System.out.println("Escolha uma opcao:");
             System.out.println("1 - Cadastrar pets");
             System.out.println("2 - Pesquisar pets");
             System.out.println("3 - Adotar um pet");
@@ -212,6 +213,7 @@ public class Adocao {
             System.out.println("5 - Editar Dados do Usuário");
             System.out.println("0 - Sair");
             System.out.println("===========================\n");
+            System.out.println("Escolha uma opcao:");
             escolha = scanner.nextInt();
             scanner.nextLine();
             switch (escolha) {
