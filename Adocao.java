@@ -105,7 +105,7 @@ public class Adocao {
         pet.setTamanho(scanner.nextDouble());
         scanner.nextLine();
 
-        System.out.println("Digite a sexo do pet:");
+        System.out.println("Digite a sexo do pet (M(Macho) ou F(Fêmea) ou desconhecido):");
         pet.setSexo(scanner.nextLine());
 
         System.out.println("Digite a cor do pet:");
@@ -164,7 +164,7 @@ public class Adocao {
     }
 
     public static void adotarPets(){
-        System.out.print("Digite o nome do pet que quer adotar:");
+        System.out.print("Digite o ID do pet que quer adotar:");
         int id = scanner.nextInt();
         scanner.nextLine();
 
@@ -177,7 +177,7 @@ public class Adocao {
                 encontrado = true;
                 break;
             } else {
-                System.out.println("Pet não encontrado. Verifique o nome e tente novamente.");
+                System.out.println("Pet não encontrado. Verifique o ID e tente novamente.");
             }
         }
     }
