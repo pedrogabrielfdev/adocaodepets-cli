@@ -168,14 +168,12 @@ public class Adocao {
         int id = scanner.nextInt();
         scanner.nextLine();
 
-        boolean encontrado = false;
+
 
         for (Pets pet : pets) {
             if (pet.getId() == (id)) {
                 pets.remove(pet);
                 System.out.println("Parabéns! Você adotou o pet " + pet.getNome() + "." + "Seja muito feliz com seu novo amigo!");
-                encontrado = true;
-                break;
             } else {
                 System.out.println("Pet não encontrado. Verifique o ID e tente novamente.");
             }
@@ -200,6 +198,23 @@ public class Adocao {
         }
     }
 
+    public static void excluirPet() {
+        System.out.print("Digite o ID do pet que quer excluir:");
+        int id = scanner.nextInt();
+        scanner.nextLine();
+
+
+        for (Pets pet : pets) {
+            if (pet.getId() == (id)) {
+                pets.remove(pet);
+                System.out.println(pet.getNome() + ", foi excluido!");
+                break;
+            } else {
+                System.out.println("Pet não encontrado. Verifique o ID e tente novamente.");
+            }
+        }
+    }
+
     public static void menu(Pessoa pessoa) {
         int escolha;
         do{
@@ -207,10 +222,11 @@ public class Adocao {
             System.out.println("1 - Cadastrar pets");
             System.out.println("2 - Pesquisar pets");
             System.out.println("3 - Adotar um pet");
+            System.out.println("4 - Excluir pet");
             System.out.println("===========================");
             System.out.println("\n==========USUÁRIO==========");
-            System.out.println("4 - Informações do Usuario");
-            System.out.println("5 - Editar Dados do Usuário");
+            System.out.println("5 - Informações do Usuario");
+            System.out.println("6 - Editar Dados do Usuário");
             System.out.println("0 - Sair");
             System.out.println("===========================\n");
             System.out.println("Escolha uma opcao:");
@@ -223,9 +239,11 @@ public class Adocao {
 
                 case 3 -> adotarPets();
 
-                case 4 -> pessoa.exibirInformacoes();
+                case 4 -> excluirPet();
 
-                case 5 -> pessoa.editarDados();
+                case 5 -> pessoa.exibirInformacoes();
+
+                case 6 -> pessoa.editarDados();
 
                 default -> System.out.println("Opção inválida!");
             }

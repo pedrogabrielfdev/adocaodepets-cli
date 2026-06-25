@@ -6,12 +6,12 @@ public class Pets {
     private boolean vacinado;
 
     Pets(int idade, String especie, String raca, String sexo, String nome, String cor, String comorbidade, double tamanho, double peso, boolean vacinado) {
-        this.idade = idade;
+        this.idade = idade; // poderia ter uma excecao
         this.id = idIncremento;
         this.especie = especie;
         this.raca = raca;
         this.sexo = sexo;
-        this.nome = nome;
+        this.nome = nome; // poderia ter uma excecao
         this.cor = cor;
         this.comorbidade = comorbidade;
         this.tamanho = tamanho;
