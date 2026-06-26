@@ -11,7 +11,7 @@ public class Pets {
         this.especie = especie;
         this.raca = raca;
         this.sexo = sexo;
-        this.nome = nome; // poderia ter uma excecao
+        this.nome = nome;
         this.cor = cor;
         this.comorbidade = comorbidade;
         this.tamanho = tamanho;

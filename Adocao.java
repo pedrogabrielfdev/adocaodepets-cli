@@ -1,5 +1,6 @@
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 
 public class Adocao {
     public static Scanner scanner = new Scanner(System.in);
@@ -16,20 +17,26 @@ public class Adocao {
         System.out.println("0 - Encerrar programa");
         System.out.println("=================================\n");
         System.out.println("Escolha uma opção:");
-        escolha = scanner.nextInt();
-        scanner.nextLine();
-            switch (escolha) {
-                case 1 -> {
-                    ResultadoLogin login = login();
-                    if (login.isLoginT()) {
-                        menu(login.getPessoa());
-                    }
-                } 
-                case 2 -> cadastrosPessoas();
-                case 0 -> System.out.println("Encerrando programa");
-                default -> System.out.println("Opção inválida!");
+        try {
+            escolha = scanner.nextInt();
+            scanner.nextLine();
+                switch (escolha) {
+                    case 1 -> {
+                        ResultadoLogin login = login();
+                        if (login.isLoginT()) {
+                            menu(login.getPessoa());
+                        }
+                    } 
+                    case 2 -> cadastrosPessoas();
+                    case 0 -> System.out.println("Encerrando programa");
+                    default -> System.out.println("Opção inválida!");
+                }
+            } catch(InputMismatchException e) {
+                escolha = -1;
+                System.out.println("Digite apenas números.");
+                scanner.nextLine();
             }
-        } while (escolha != 0);
+        } while (escolha != 0 || escolha == -1);
     }
 
     public static ResultadoLogin login() {
@@ -93,17 +100,32 @@ public class Adocao {
         System.out.println("Digite a raça do pet:");
         pet.setRaca(scanner.nextLine());
 
+        try { // exceção para caso não digite um número
         System.out.println("Digite a idade do pet:");
         pet.setIdade(scanner.nextInt());
         scanner.nextLine();
+        } catch(InputMismatchException e){
+            System.out.println("Digite apenas números.");
+            scanner.nextLine();
+        }
 
-        System.out.println("Digite o peso do pet:");
-        pet.setPeso(scanner.nextDouble());
-        scanner.nextLine();
+        try { // exceção para caso não digite um número
+            System.out.println("Digite o peso do pet:");
+            pet.setPeso(scanner.nextDouble());
+            scanner.nextLine();
+        } catch(InputMismatchException e) {
+            System.out.println("Digite apenas números.");
+            scanner.nextLine();
+        }
 
+        try { // exceção para caso não digite um número
         System.out.println("Digite o tamanho do pet:");
         pet.setTamanho(scanner.nextDouble());
         scanner.nextLine();
+        } catch(InputMismatchException e) {
+            System.out.println("Digite apenas números.");
+            scanner.nextLine();
+        }
 
         System.out.println("Digite a sexo do pet (M(Macho) ou F(Fêmea) ou desconhecido):");
         pet.setSexo(scanner.nextLine());
@@ -127,7 +149,7 @@ public class Adocao {
     }
 
     public static void cadastrosPessoas() {
-        Pessoa pessoa= new Pessoa(null, null, null, null, null, null, null, 0);
+        Pessoa pessoa= new Adotante(null, null, null, null, null, null, null, 0);
 
         System.out.println("Digite o nome de usuário que você deseja:");
         pessoa.setLogin(scanner.nextLine());
@@ -147,11 +169,21 @@ public class Adocao {
         System.out.println("Digite o seu cpf:");
         pessoa.setCpf(scanner.nextLine());
 
-        System.out.println("Digite a sua idade:");
-        int idade = scanner.nextInt();
-        scanner.nextLine();
-        if (!pessoa.setidade(idade)) {
-        return; 
+        try { // exceção para caso não digite um número
+            System.out.println("Digite a sua idade:");
+            int idade = scanner.nextInt();
+            scanner.nextLine();
+
+            if (!pessoa.setidade(idade)) {
+            return; 
+            }
+            
+        } catch (InputMismatchException e) {
+            System.out.println("Digite apenas números.");
+
+            scanner.nextLine();
+
+            return;
         }
 
         System.out.println("Crie a sua senha:");
