@@ -120,22 +120,44 @@ public class Adocao {
             }
         }
 
-        try { // exceção para caso não digite um número
-            System.out.println("Digite o peso do pet:");
-            pet.setPeso(scanner.nextDouble());
-            scanner.nextLine();
-        } catch(InputMismatchException e) {
-            System.out.println("Digite apenas números.");
-            scanner.nextLine();
+        boolean pesoValido = false;
+
+        while (!pesoValido) {
+
+            try {
+
+                System.out.println("Digite o peso do pet:");
+                pet.setPeso(scanner.nextDouble());
+
+                pesoValido = true;
+
+            } catch (InputMismatchException e) {
+
+                System.out.println("Digite apenas números.");
+                scanner.nextLine();
+
+            }
         }
 
-        try { // exceção para caso não digite um número
-        System.out.println("Digite o tamanho do pet:");
-        pet.setTamanho(scanner.nextDouble());
-        scanner.nextLine();
-        } catch(InputMismatchException e) {
-            System.out.println("Digite apenas números.");
-            scanner.nextLine();
+
+        boolean tamanhoValido = false;
+
+        while (!tamanhoValido) {
+
+            try {
+
+                System.out.println("Digite o tamanho do pet:");
+                pet.setTamanho(scanner.nextDouble());
+                scanner.nextLine();
+
+                tamanhoValido = true;
+
+            } catch (InputMismatchException e) {
+
+                System.out.println("Digite apenas números.");
+                scanner.nextLine();
+
+            }
         }
 
         System.out.println("Digite a sexo do pet (M(Macho) ou F(Fêmea) ou desconhecido):");
