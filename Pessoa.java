@@ -122,7 +122,6 @@ public class Pessoa {
     public void alterar_endereco(){
         System.out.println("Digite o novo endereço:");
         String novoEndereco = ler.nextLine();
-        ler.nextLine();
         
         setEndereco(novoEndereco);
     }

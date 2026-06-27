@@ -100,13 +100,24 @@ public class Adocao {
         System.out.println("Digite a raça do pet:");
         pet.setRaca(scanner.nextLine());
 
-        try { // exceção para caso não digite um número
-        System.out.println("Digite a idade do pet:");
-        pet.setIdade(scanner.nextInt());
-        scanner.nextLine();
-        } catch(InputMismatchException e){
-            System.out.println("Digite apenas números.");
-            scanner.nextLine();
+        boolean idadeValida = false;
+
+        while (!idadeValida) {
+
+            try {
+
+                System.out.println("Digite a idade do pet:");
+                pet.setIdade(scanner.nextInt());
+                scanner.nextLine();
+
+                idadeValida = true;
+
+            } catch(InputMismatchException e) {
+
+                System.out.println("Digite apenas números.");
+                scanner.nextLine();
+
+            }
         }
 
         try { // exceção para caso não digite um número
@@ -169,21 +180,28 @@ public class Adocao {
         System.out.println("Digite o seu cpf:");
         pessoa.setCpf(scanner.nextLine());
 
-        try { // exceção para caso não digite um número
-            System.out.println("Digite a sua idade:");
-            int idade = scanner.nextInt();
-            scanner.nextLine();
+        boolean idadeValida = false;
 
-            if (!pessoa.setidade(idade)) {
-            return; 
+        while (!idadeValida) {
+
+            try {
+
+                System.out.println("Digite a sua idade:");
+                int idade = scanner.nextInt();
+                scanner.nextLine();
+
+                if (pessoa.setidade(idade)) {
+
+                    idadeValida = true;
+
+                }
+
+            } catch(InputMismatchException e) {
+
+                System.out.println("Digite apenas números.");
+                scanner.nextLine();
+
             }
-            
-        } catch (InputMismatchException e) {
-            System.out.println("Digite apenas números.");
-
-            scanner.nextLine();
-
-            return;
         }
 
         System.out.println("Crie a sua senha:");
@@ -196,20 +214,34 @@ public class Adocao {
     }
 
     public static void adotarPets(){
+
         System.out.print("Digite o ID do pet que quer adotar:");
         int id = scanner.nextInt();
         scanner.nextLine();
 
-
+        Pets petEncontrado = null;
 
         for (Pets pet : pets) {
-            if (pet.getId() == (id)) {
-                pets.remove(pet);
-                System.out.println("Parabéns! Você adotou o pet " + pet.getNome() + "." + "Seja muito feliz com seu novo amigo!");
-            } else {
-                System.out.println("Pet não encontrado. Verifique o ID e tente novamente.");
+
+            if (pet.getId() == id) {
+                petEncontrado = pet;
+                break;
             }
         }
+
+        if (petEncontrado != null) {
+
+            pets.remove(petEncontrado);
+
+            System.out.println("Parabéns! Você adotou o pet " 
+            + petEncontrado.getNome() 
+            + ". Seja muito feliz com seu novo amigo!");
+
+        } else {
+
+            System.out.println("Pet não encontrado. Verifique o ID e tente novamente.");
+        }
+
     }
 
     public static void pesquisar() {
