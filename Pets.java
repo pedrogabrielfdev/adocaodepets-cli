@@ -1,12 +1,19 @@
+import java.util.Scanner;
+
 public class Pets {
+    Scanner ler = new Scanner(System.in);
     private static int idIncremento = 1;
     private int idade, id=0;
     private double tamanho, peso;
     private String especie, raca, sexo, nome, cor, comorbidade;
     private boolean vacinado;
 
-    Pets(int idade, String especie, String raca, String sexo, String nome, String cor, String comorbidade, double tamanho, double peso, boolean vacinado) {
-        this.idade = idade; // poderia ter uma excecao
+    public Pets(){
+
+    }
+
+    public Pets(int idade, String especie, String raca, String sexo, String nome, String cor, String comorbidade, double tamanho, double peso, boolean vacinado) {
+        this.idade = idade;
         this.id = idIncremento;
         this.especie = especie;
         this.raca = raca;
@@ -109,6 +116,75 @@ public class Pets {
         this.vacinado = vacinado;
     }
 
+    public void alterar_nome(){
+        System.out.println("Digite o novo nome:");
+        String novoNome = ler.nextLine();
+       
+        setNome(novoNome);
+    }
+
+    public void alterar_sexo(){
+        System.out.println("Digite o novo sexo:");
+        String novoSexo = ler.nextLine();
+       
+        setSexo(novoSexo);
+    }
+
+    public void alterar_raca(){
+        System.out.println("Digite a nova raça:");
+        String novaRaca = ler.nextLine();
+       
+        setRaca(novaRaca);
+    }
+
+    public void alterar_especie(){
+        System.out.println("Digite a nova especie:");
+        String novaEspecie = ler.nextLine();
+        
+        setEspecie(novaEspecie);
+    }
+
+    public void alterar_comorbidade(){
+        System.out.println("Digite a nova comorbidade:");
+        String novaComorbidade = ler.nextLine();
+       
+        setComorbidade(novaComorbidade);
+    }
+
+    public void alterar_idade(){
+        System.out.println("Digite a nova idade:");
+        int novaIdade = ler.nextInt();
+        setIdade(novaIdade);
+    }
+
+    public void alterar_cor(){
+        System.out.println("Digite a nova cor:");
+        String novaCor = ler.nextLine();
+
+        setCor(novaCor);
+    }
+
+    public void alterar_tamanho(){
+        System.out.println("Digite o novo tamanho:");
+        double novoTamanho = ler.nextDouble();
+       
+        setTamanho(novoTamanho);
+    }
+
+        public void alterar_peso(){
+        System.out.println("Digite o novo peso:");
+        double novoPeso = ler.nextDouble();
+       
+        setPeso(novoPeso);
+    }
+
+        public void alterar_vacinado(){
+        System.out.println("Digite se o pet foi vacinado ou não s(sim) ou n(não):");
+        boolean novoVacinado = ler.nextBoolean();
+       
+        setVacinado(novoVacinado);
+    }
+
     public void exibirInformacoes() {
 
         System.out.println("\n====================");
@@ -127,4 +203,48 @@ public class Pets {
         System.out.println("Vacinado:"+ this.vacinado);
 
     }
-}
+
+    public void editarDadospet() {
+
+        int escolha; 
+
+        System.out.println("\nescolha a opção que deseja editar\n");
+        System.out.println("1 - Nome");
+        System.out.println("2 - Sexo");
+        System.out.println("3 - Idade");
+        System.out.println("4 - Especie");
+        System.out.println("5 - Comorbidade");
+        System.out.println("6 - Cor");
+        System.out.println("7 - Raça");
+        System.out.println("8 - Peso");
+        System.out.println("9 - Tamanho");
+        System.out.println("10 - Vacinado");
+
+        escolha = ler.nextInt();
+        ler.nextLine();
+
+        switch(escolha) {
+            case 1 -> alterar_nome();
+            
+            case 2 -> alterar_sexo();
+            
+            case 3 -> alterar_idade();
+            
+            case 4 -> alterar_especie();
+            
+            case 5 -> alterar_comorbidade();
+            
+            case 6 -> alterar_cor();
+            
+            case 7 -> alterar_raca();
+            
+            case 8 -> alterar_peso();
+
+            case 9 -> alterar_tamanho();
+            
+            case 10 -> alterar_vacinado();
+
+            default -> System.out.println("Opção Inválida!");
+        }
+    }
+}    

@@ -13,7 +13,7 @@ public class Adocao {
         do {
         System.out.println("\n===========MENU_LOGIN============");
         System.out.println("1 - Login");
-        System.out.println("2 - cadastro");
+        System.out.println("2 - Cadastro");
         System.out.println("0 - Encerrar programa");
         System.out.println("=================================\n");
         System.out.println("Escolha uma opção:");
@@ -301,6 +301,24 @@ public class Adocao {
         }
     }
 
+    public static void editarDadosdopet(){ 
+        System.out.println("Digite o id do pet que deseja editar as informações\n");
+        int id = scanner.nextInt();
+        scanner.nextLine();
+
+        for (Pets pet : pets) {
+                if (pet.getId() == (id)) {
+                    pet.exibirInformacoes();
+                    pet.editarDadospet();
+                    System.out.println(pet.getNome() + ",editado");
+                    break;
+            } else {
+                System.out.println("Pet não encontrado. Verifique o ID e tente novamente.");
+            }
+        }
+    }
+   
+
     public static void menu(Pessoa pessoa) {
         int escolha;
         do{
@@ -309,10 +327,11 @@ public class Adocao {
             System.out.println("2 - Pesquisar pets");
             System.out.println("3 - Adotar um pet");
             System.out.println("4 - Excluir pet");
+            System.out.println("5 - Editar dados do pet");
             System.out.println("===========================");
             System.out.println("\n==========USUÁRIO==========");
-            System.out.println("5 - Informações do Usuario");
-            System.out.println("6 - Editar Dados do Usuário");
+            System.out.println("6 - Informações do Usuario");
+            System.out.println("7 - Editar Dados do Usuário");
             System.out.println("0 - Sair");
             System.out.println("===========================\n");
             System.out.println("Escolha uma opcao:");
@@ -327,9 +346,11 @@ public class Adocao {
 
                 case 4 -> excluirPet();
 
-                case 5 -> pessoa.exibirInformacoes();
+                case 5 -> editarDadosdopet();
 
-                case 6 -> pessoa.editarDados();
+                case 6 -> pessoa.exibirInformacoes();
+
+                case 7 -> pessoa.editarDados();
 
                 default -> System.out.println("Opção inválida!");
             }
